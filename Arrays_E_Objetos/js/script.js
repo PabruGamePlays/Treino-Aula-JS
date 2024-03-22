@@ -281,7 +281,7 @@ console.log(fraseDeCompra)
 //22 - repeat
 const palavra = "Testando ";
 
-console.log(palavra.repeat(5));*/ 
+console.log(palavra.repeat(5));
 //Fim de operações para String
 
 
@@ -300,3 +300,78 @@ const somaInfinita = (...args) => {
 console.log(somaInfinita(1, 2, 3));
 
 console.log(somaInfinita(1, 20, 34, 420, 572, 1803));
+
+
+//24 - For of
+const somaInfinita2 = (...args) =>{
+
+    let total = 0
+
+    for(num of args){
+        total += num;
+    }
+
+    return total
+}
+
+console.log(somaInfinita2(1, 2, 3, 4));
+
+console.log(somaInfinita2(5, 35, 22));
+
+
+//25 - Destructuring em objetos
+const userDetails = {
+    firstName: "Pablo",
+    lastName: "Souza",
+    job: "Programador"
+}
+
+const { firstName, lastName, job } = userDetails;
+
+console.log(firstName, lastName, job);
+
+//renomear varíaveis
+const { firstName: primeiroNome } = userDetails;
+
+console.log(firstName)
+
+console.log(primeiroNome)
+
+
+//26 - Destructuring em Arrays
+const myList = ["Avião", "Submarino", "Carro"]
+
+const [veiculoA, veiculoB, veiculoC] = myList;
+
+console.log(veiculoA)
+console.log(veiculoB)
+console.log(veiculoC)*/ 
+
+
+//27 - Json
+const myJson = '{"name": "Pablo", "age": 21, "skills": ["Java", "HTML", "JavaScript"]}';
+
+
+//28 - JSON para objeto & objeto para JSON
+const myObject = JSON.parse(myJson);
+
+console.log(myObject);
+
+console.log(myObject.name);
+
+console.log(typeof myObject);
+
+//json invalido
+//const badJson = '{"name": Pablo, "age": 21}'
+
+//const myBadObject = JSON.parse(badJson);
+
+myObject.isOpenToWork = true
+
+console.log(myObject);
+
+const myNewJson = JSON.stringify(myObject);
+
+console.log(myNewJson);
+
+console.log(typeof myNewJson);
