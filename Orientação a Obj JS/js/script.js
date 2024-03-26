@@ -64,7 +64,7 @@ console.log(mySecondObject);
 
 console.log(mySecondObject.a);
 
-console.log(Object.getPrototypeOf(mySecondObject) === myObject);*/
+console.log(Object.getPrototypeOf(mySecondObject) === myObject);
 
 
 //5 - classes basicas
@@ -108,3 +108,139 @@ const jack = criarCachorro("Jack", "Poodle");
 console.log(jack);
 
 console.log(Object.getPrototypeOf(jack));
+
+
+//7 - funções como classe
+function Cachorro(nome, raca){
+    this.nome = nome;
+    this.raca = raca
+}
+
+const husky = new Cachorro("Ozzy", "Husky");
+console.log(husky)
+
+
+//8 - metodos na funçaõ construtora
+Cachorro.prototype.uivar = function(){
+    console.log("AUUUUU!");
+}
+
+console.log(Cachorro.prototype)
+
+husky.uivar();
+
+
+// 9 - Classes ES6
+class CachorroClasse{
+    constructor(nome, raca){
+        this.nome = nome;
+        this.raca = raca;
+    }
+}
+
+const jeff = new CachorroClasse("Jeff", "Labrador");
+
+console.log(jeff)
+
+console.log(Object.getPrototypeOf(jeff));
+
+
+//10 - mais sobre Classes
+class Caminhao {
+    constructor(eixos, cor){
+        this.eixos = eixos;
+        this.cor = cor;
+    }
+
+    descreverCaminhao(){
+        console.log(`Este caminhão tem ${this.eixos} eixos e é da cor ${this.cor}`);
+    }
+}
+
+const scania = new Caminhao(6, "Vermelho");
+
+console.group(scania);
+
+scania.descreverCaminhao();
+
+Caminhao.motor = 4;
+
+const c2 = new Caminhao(4, "Preto");
+console.log(c2);
+
+console.log(c2.motor);
+
+Caminhao.prototype.motor = 4.0
+
+const c3 = new Caminhao(6, "Azul");
+console.log(c3);
+
+console.log(c3.motor);
+
+
+//11 - Override
+class Humano{
+    constructor(nome, idade){
+        this.nome = nome;
+        this.idade = idade;
+    }
+}
+
+const pablo = new Humano("Pablo", 21);
+
+console.log(pablo);
+
+Humano.prototype.idade = "Não definida";
+
+console.log(pablo.idade);
+
+console.log(Humano.prototype.idade);*/
+
+
+//12 - Symbols
+class Aviao {
+    constructor(marca, turbinas) {
+        this.marca = marca;
+        this.turbinas = turbinas;
+    }
+}
+
+const asas = Symbol();
+const pilotos = Symbol();
+
+Aviao.prototype[asas] = 2;
+Aviao.prototype[pilotos] = 3;
+
+const boeing = new Aviao("Boeing", 10);
+
+console.log(boeing);
+
+console.log(boeing[asas]);
+console.log(boeing[pilotos]);
+
+
+//13 - Getters e Setters
+class Post{
+    constructor(titulo, descricao, tags){
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.tags = tags;
+    }
+
+    get exibirTitulo(){
+        return `Você esta lendo ${this.titulo}`;
+    }
+
+    set adicionarTags(tags){
+        const tagsArrays = tags.split(", ")
+        this.tags = tagsArrays
+    }
+}
+
+const myPost = new Post("Algum post", "É um post sobre programação");
+
+console.log(myPost);
+console.log(myPost.exibirTitulo);
+
+myPost.adicionarTags = "programação, javascript, JS";
+console.log(myPost);
