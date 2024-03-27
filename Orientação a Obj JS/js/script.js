@@ -244,3 +244,31 @@ console.log(myPost.exibirTitulo);
 
 myPost.adicionarTags = "programação, javascript, JS";
 console.log(myPost);
+
+
+//14 - Herança
+class Mamifero{
+    constructor(patas){
+        this.patas = patas
+    }
+}
+
+class Lobo extends Mamifero{
+    constructor(patas, nome){
+        super(patas, patas)
+        this.nome = nome
+    }
+}
+
+const shark = new Lobo (4, "Shark")
+
+console.log(shark)
+
+
+//15 - instanceOf
+console.log(shark instanceof Lobo);
+console.log(Lobo instanceof Mamifero);
+
+console.log(new Lobo(4, "Teste") instanceof Mamifero);
+
+console.log(new Post("a", "b") instanceof Lobo);
