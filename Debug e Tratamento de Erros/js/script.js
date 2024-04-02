@@ -51,3 +51,64 @@ if(c > 5){
     c = 25;
 }
 
+
+//4 - tratamento de dados
+function checkNumber(n) {
+    const result = Number(n)
+
+    if(Number.isNaN(result)){
+        console.log("Valor incorreto!");
+        return;
+    }
+    console.log("Valor correto!");
+    return result;
+}
+
+checkNumber(5);
+checkNumber("10");
+checkNumber({});
+checkNumber("teste");
+
+
+//5 - Exceptions
+let x = 10;
+
+if(x != 11){
+    //throw new Error("O valor de X não pode ser diferente de 11")
+}
+
+
+//6 - Try Catch
+try{
+    const soma = x + y
+} catch (error) {
+    console.log(`Erro no programa: ${error}`)
+}
+
+
+//7 - Finally
+try{
+    const value = checkNumber("ADS")
+
+    if(!value){
+        throw new Error("Valores invalidos")
+    }
+} catch(error){
+    console.log(`Ops! Houve algum problema: ${error}`);
+} finally{
+    console.log("O código foi executado!")
+}
+
+//8 - Assertions
+function checkArray(arr){
+
+    if(arr.length === 0){
+        throw new Error("O array precisa ter elementos");
+    } else{
+        console.log(`O array tem ${arr.length} elementos`);
+    }
+}
+
+//checkArray([]);
+
+checkArray([15, "25", 32, "Pablo"]);
